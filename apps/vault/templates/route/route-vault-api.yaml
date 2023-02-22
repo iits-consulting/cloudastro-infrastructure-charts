@@ -1,0 +1,20 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: vault-ui-api
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`{{ .Values.dns.hostAdmin }}`) &&  PathPrefix(`/v1`)
+      services:
+        - kind: Service
+          name: vault-ui
+          namespace: {{.Release.Namespace}}
+          passHostHeader: true
+          port: 8200
+  tls:
+    secretName: {{.Release.Name}}
+    domains:
+      - main: {{ .Values.dns.hostAdmin}}
