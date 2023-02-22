@@ -7,7 +7,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`{{ .Values.dns.hostAdmin }}`) && PathPrefix(`/ui`)
+      match: Host(`{{ .Values.dns.host }}`) && PathPrefix(`/ui`)
       services:
         - kind: Service
           name: vault-ui
@@ -17,4 +17,4 @@ spec:
   tls:
     secretName: {{.Release.Name}}
     domains:
-      - main: {{ .Values.dns.hostAdmin}}
+      - main: {{ .Values.dns.host}}

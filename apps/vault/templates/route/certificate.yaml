@@ -7,9 +7,9 @@ spec:
   issuerRef:
     name: {{.Values.dns.certificate.clusterIssuer}}
     kind: ClusterIssuer
-  commonName: {{ .Values.dns.hostAdmin}}
+  commonName: {{ .Values.dns.host}}
   privateKey:
     algorithm: "RSA"
     size: 4096
   dnsNames:
-    - {{ .Values.dns.hostAdmin}}
+    - {{ .Values.dns.host}}
