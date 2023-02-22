@@ -1,0 +1,19 @@
+dnsAuth:
+  host: "SET_BY_ARGOCD"
+  certificate:
+    clusterIssuer: letsencrypt
+keycloak:
+  proxyAddressForwarding: true
+  replicaCount: 2
+  service:
+    type: ClusterIP
+  postgresql:
+    enabled: false
+  auth:
+    adminUser: "admin"
+    adminPassword: "admin123"
+  externalDatabase:
+    user: "SET_BY_ARGOCD"
+    host: "SET_BY_ARGOCD"
+    database: "SET_BY_ARGOCD"
+    port: "SET_BY_ARGOCD"

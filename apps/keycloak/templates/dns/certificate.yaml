@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name:  {{.Release.Name}}
+  namespace: {{ .Values.namespace }}
+spec:
+  secretName: {{.Release.Name}}
+  issuerRef:
+    name: {{.Values.dnsAuth.certificate.clusterIssuer}}
+    kind: ClusterIssuer
+  commonName: {{.Values.dnsAuth.host}}
+  privateKey:
+    algorithm: "RSA"
+    size: 4096
+  dnsNames:
+    - {{.Values.dnsAuth.host}}
