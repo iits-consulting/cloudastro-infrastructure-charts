@@ -24,8 +24,3 @@ elastic-stack:
   namespace: monitoring
 vault:
   namespace: vault
-keycloak:
-  namespace: auth
-  helmValues:
-    - name: dnsAuth.host
-      value: "auth.astro.iits.tech"
