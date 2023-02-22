@@ -16,4 +16,4 @@ keycloak:
     user: "SET_BY_ARGOCD"
     host: "SET_BY_ARGOCD"
     database: "SET_BY_ARGOCD"
-    port: "SET_BY_ARGOCD"
+    port: "5432"
